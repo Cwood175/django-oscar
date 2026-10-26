@@ -543,7 +543,8 @@ class SavedView(ModelFormSetView):
             if form.cleaned_data.get("move_to_basket", False):
                 is_move = True
                 msg = render_to_string(
-                    "oscar/basket/messages/line_restored.html", {"line": form.instance}
+                    "oscar/basket/messages/line_restored.html",
+                    {"line": form.instance},
                 )
                 messages.info(self.request, msg, extra_tags="safe noicon")
                 real_basket = self.request.basket
